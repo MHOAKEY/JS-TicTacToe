@@ -4,3 +4,31 @@
 // - A User should only be able to select one box per turn
 // - A User should not be able to select a box that is already selected
 // - When game is over (whether a win or tie) the users should be prompted to play again and the game should be reset
+
+let gamePiece = "";
+let playerTurn = true;
+const gameSpaces = document.querySelectorAll(".gameSpace");
+
+gameSpaces.forEach(addEventListenerToGameSpaces);
+
+function addEventListenerToGameSpaces(gameSpace) {
+  gameSpace.addEventListener("click", useGamePiece);
+}
+
+function useGamePiece(event) {
+  if (playerTurn === true) {
+    gamePiece = "X";
+  }
+  if (playerTurn === false) {
+    gamePiece = "O";
+  }
+
+  event.target.innerHTML = gamePiece;
+
+  if (gamePiece === "X") {
+    playerTurn = false;
+  }
+  if (gamePiece === "O") {
+    playerTurn = true;
+  }
+}
