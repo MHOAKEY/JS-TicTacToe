@@ -7,9 +7,12 @@
 
 let gamePiece = "";
 let playerTurn = true;
+let text = document.getElementById("text");
 const gameSpaces = document.querySelectorAll(".gameSpace");
 
 gameSpaces.forEach(addEventListenerToGameSpaces);
+
+text.innerHTML += "Player X turn.";
 
 function addEventListenerToGameSpaces(gameSpace) {
   gameSpace.addEventListener("click", useGamePiece);
@@ -27,8 +30,10 @@ function useGamePiece(event) {
 
   if (gamePiece === "X") {
     playerTurn = false;
+    text.innerHTML = "Player O Turn";
   }
   if (gamePiece === "O") {
     playerTurn = true;
+    text.innerHTML = "Player X Turn";
   }
 }
