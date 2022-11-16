@@ -23,7 +23,7 @@ const gameSpaces = document.querySelectorAll(".gameSpace");
 
 gameSpaces.forEach(addEventListenerToGameSpaces);
 
-text.innerHTML += "Player X turn.";
+text.innerHTML += "Player X turn";
 
 function addEventListenerToGameSpaces(gameSpace) {
   gameSpace.addEventListener("click", useGamePiece);
@@ -31,11 +31,63 @@ function addEventListenerToGameSpaces(gameSpace) {
 
 function checkWin() {
   if (
-    one.innerHTML === two.innerHTML &&
-    two.innerHTML === three.innerHTML &&
-    one.innerHTML !== ""
+    gameSpaces[0].innerHTML === gameSpaces[1].innerHTML &&
+    gameSpaces[1].innerHTML === gameSpaces[2].innerHTML &&
+    gameSpaces[0].innerHTML !== ""
   ) {
-    text.innerHTML = "Player" + xGamePiece + "Wins!";
+    return true;
+  }
+
+  if (
+    gameSpaces[3].innerHTML === gameSpaces[4].innerHTML &&
+    gameSpaces[4].innerHTML === gameSpaces[5].innerHTML &&
+    gameSpaces[3].innerHTML !== ""
+  ) {
+    return true;
+  }
+  if (
+    gameSpaces[6].innerHTML === gameSpaces[7].innerHTML &&
+    gameSpaces[7].innerHTML === gameSpaces[8].innerHTML &&
+    gameSpaces[6].innerHTML !== ""
+  ) {
+    return true;
+  }
+  if (
+    gameSpaces[0].innerHTML === gameSpaces[3].innerHTML &&
+    gameSpaces[3].innerHTML === gameSpaces[6].innerHTML &&
+    gameSpaces[0].innerHTML !== ""
+  ) {
+    return true;
+  }
+  if (
+    gameSpaces[1].innerHTML === gameSpaces[4].innerHTML &&
+    gameSpaces[4].innerHTML === gameSpaces[7].innerHTML &&
+    gameSpaces[1].innerHTML !== ""
+  ) {
+    return true;
+  }
+  if (
+    gameSpaces[2].innerHTML === gameSpaces[5].innerHTML &&
+    gameSpaces[5].innerHTML === gameSpaces[8].innerHTML &&
+    gameSpaces[2].innerHTML !== ""
+  ) {
+    return true;
+  }
+  if (
+    gameSpaces[0].innerHTML === gameSpaces[4].innerHTML &&
+    gameSpaces[4].innerHTML === gameSpaces[8].innerHTML &&
+    gameSpaces[0].innerHTML !== ""
+  ) {
+    return true;
+  }
+  if (
+    gameSpaces[2].innerHTML === gameSpaces[4].innerHTML &&
+    gameSpaces[4].innerHTML === gameSpaces[6].innerHTML &&
+    gameSpaces[2].innerHTML !== ""
+  ) {
+    return true;
+  } else {
+    return false;
   }
 }
 
@@ -48,14 +100,16 @@ function useGamePiece(event) {
   }
 
   event.target.innerHTML = gamePiece;
-  checkWin();
-
-  if (gamePiece === xGamePiece) {
-    playerTurn = false;
-    text.innerHTML = "Player" + oGamePiece + "Turn";
-  }
-  if (gamePiece === oGamePiece) {
-    playerTurn = true;
-    text.innerHTML = "Player" + xGamePiece + "Turn";
+  if (checkWin()) {
+    text.innerHTML = "PLAYER " + gamePiece + " WINS!";
+  } else {
+    if (gamePiece === xGamePiece) {
+      playerTurn = false;
+      text.innerHTML = "Player " + oGamePiece + " turn";
+    }
+    if (gamePiece === oGamePiece) {
+      playerTurn = true;
+      text.innerHTML = "Player " + xGamePiece + " turn";
+    }
   }
 }
