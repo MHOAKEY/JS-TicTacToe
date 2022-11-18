@@ -82,12 +82,7 @@ function checkWin() {
 }
 
 function useGamePiece(event) {
-  if (playerTurn) {
-    gamePiece = xGamePiece;
-  }
-  if (playerTurn === false) {
-    gamePiece = oGamePiece;
-  }
+  playerTurn ? (gamePiece = xGamePiece) : (gamePiece = oGamePiece);
 
   event.target.innerHTML = gamePiece;
   if (checkWin()) {
