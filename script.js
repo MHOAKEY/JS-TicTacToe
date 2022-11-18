@@ -11,7 +11,9 @@ let text = document.getElementById("text");
 const xGamePiece = "X";
 const oGamePiece = "O";
 const gameSpaces = document.querySelectorAll(".gameSpace");
+const restart = document.getElementById("restart");
 
+restart.addEventListener("click", clearGameBoard);
 gameSpaces.forEach(addEventListenerToGameSpaces);
 
 function addEventListenerToGameSpaces(gameSpace) {
@@ -79,6 +81,33 @@ function checkWin() {
     return true;
   }
   return false;
+}
+
+function clearGameBoard(event) {
+  if (text.innerHTML === "PLAYER " + xGamePiece + " WINS!") {
+    text.innerHTML = "Player X turn";
+    gameSpaces[0].innerHTML = "";
+    gameSpaces[1].innerHTML = "";
+    gameSpaces[2].innerHTML = "";
+    gameSpaces[3].innerHTML = "";
+    gameSpaces[4].innerHTML = "";
+    gameSpaces[5].innerHTML = "";
+    gameSpaces[6].innerHTML = "";
+    gameSpaces[7].innerHTML = "";
+    gameSpaces[8].innerHTML = "";
+  }
+  if (text.innerHTML === "PLAYER " + oGamePiece + " WINS!") {
+    text.innerHTML = "Player O turn";
+    gameSpaces[0].innerHTML = "";
+    gameSpaces[1].innerHTML = "";
+    gameSpaces[2].innerHTML = "";
+    gameSpaces[3].innerHTML = "";
+    gameSpaces[4].innerHTML = "";
+    gameSpaces[5].innerHTML = "";
+    gameSpaces[6].innerHTML = "";
+    gameSpaces[7].innerHTML = "";
+    gameSpaces[8].innerHTML = "";
+  }
 }
 
 function useGamePiece(event) {
