@@ -18,7 +18,7 @@ function addEventListenerToGameSpaces(gameSpace) {
   gameSpace.addEventListener("click", useGamePiece);
 }
 
-text.innerHTML += "Player X turn";
+text.innerHTML = "Player X turn";
 
 function checkWin() {
   if (
@@ -77,13 +77,12 @@ function checkWin() {
     gameSpaces[2].innerHTML !== ""
   ) {
     return true;
-  } else {
-    return false;
   }
+  return false;
 }
 
 function useGamePiece(event) {
-  if (playerTurn === true) {
+  if (playerTurn) {
     gamePiece = xGamePiece;
   }
   if (playerTurn === false) {
