@@ -83,50 +83,13 @@ function checkWin() {
   return false;
 }
 
-function checkDraw() {
-  if (
-    gameSpaces[0].innerHTML !== "" &&
-    gameSpaces[1].innerHTML !== "" &&
-    gameSpaces[2].innerHTML !== "" &&
-    gameSpaces[3].innerHTML !== "" &&
-    gameSpaces[4].innerHTML !== "" &&
-    gameSpaces[5].innerHTML !== "" &&
-    gameSpaces[6].innerHTML !== "" &&
-    gameSpaces[7].innerHTML !== "" &&
-    gameSpaces[8].innerHTML !== ""
-  ) {
-    return true;
-  }
-  return false;
-}
-
 function clearGameBoard(event) {
   if (text.innerHTML === "PLAYER " + xGamePiece + " WINS!") {
     text.innerHTML = "Player X turn";
-    gameSpaces[0].innerHTML = "";
-    gameSpaces[1].innerHTML = "";
-    gameSpaces[2].innerHTML = "";
-    gameSpaces[3].innerHTML = "";
-    gameSpaces[4].innerHTML = "";
-    gameSpaces[5].innerHTML = "";
-    gameSpaces[6].innerHTML = "";
-    gameSpaces[7].innerHTML = "";
-    gameSpaces[8].innerHTML = "";
+    gameSpaces.forEach((space) => (space.innerHTML = ""));
   }
   if (text.innerHTML === "PLAYER " + oGamePiece + " WINS!") {
     text.innerHTML = "Player O turn";
-    gameSpaces[0].innerHTML = "";
-    gameSpaces[1].innerHTML = "";
-    gameSpaces[2].innerHTML = "";
-    gameSpaces[3].innerHTML = "";
-    gameSpaces[4].innerHTML = "";
-    gameSpaces[5].innerHTML = "";
-    gameSpaces[6].innerHTML = "";
-    gameSpaces[7].innerHTML = "";
-    gameSpaces[8].innerHTML = "";
-  }
-  if (text.innerHTML === "DRAW!") {
-    text.innerHTML = "Player X turn";
     gameSpaces[0].innerHTML = "";
     gameSpaces[1].innerHTML = "";
     gameSpaces[2].innerHTML = "";
@@ -145,9 +108,6 @@ function useGamePiece(event) {
   event.target.innerHTML = gamePiece;
   if (checkWin()) {
     text.innerHTML = "PLAYER " + gamePiece + " WINS!";
-  }
-  if (checkDraw()) {
-    text.innerHTML = "DRAW!";
   } else {
     if (gamePiece === xGamePiece) {
       playerTurn = false;
