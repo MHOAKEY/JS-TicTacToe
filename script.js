@@ -86,12 +86,11 @@ function checkWin() {
 function clearGameBoard(event) {
   if (text.innerHTML === "PLAYER " + xGamePiece + " WINS!") {
     text.innerHTML = "Player X turn";
-    gameSpaces.forEach((space) => (space.innerHTML = ""));
   }
   if (text.innerHTML === "PLAYER " + oGamePiece + " WINS!") {
     text.innerHTML = "Player O turn";
-    gameSpaces.forEach((space) => (space.innerHTML = ""));
   }
+  gameSpaces.forEach((space) => (space.innerHTML = ""));
 }
 
 function useGamePiece(event) {
