@@ -117,10 +117,10 @@ function useGamePiece(event) {
   playerTurn ? (gamePiece = xGamePiece) : (gamePiece = oGamePiece);
 
   event.target.innerHTML = gamePiece;
-  if (checkDraw()) {
-    text.innerHTML = "DRAW!";
-  } else if (checkWin()) {
+  if (checkWin()) {
     text.innerHTML = "PLAYER " + gamePiece + " WINS!";
+  } else if (checkDraw()) {
+    text.innerHTML = "DRAW!";
   } else {
     if (gamePiece === xGamePiece) {
       playerTurn = false;
