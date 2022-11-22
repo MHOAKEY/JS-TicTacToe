@@ -100,6 +100,10 @@ function checkDraw() {
   return false;
 }
 
+function disableGameSpace(trueFalse) {
+  gameSpaces.forEach((space) => (space.disabled = trueFalse));
+}
+
 function clearGameBoard(event) {
   if (text.innerHTML === "PLAYER " + xGamePiece + " WINS!") {
     text.innerHTML = "Player X turn";
@@ -111,14 +115,17 @@ function clearGameBoard(event) {
     text.innerHTML = "Player X turn";
   }
   gameSpaces.forEach((space) => (space.innerHTML = ""));
+  disableGameSpace(false);
 }
 
 function useGamePiece(event) {
   playerTurn ? (gamePiece = xGamePiece) : (gamePiece = oGamePiece);
 
   event.target.innerHTML = gamePiece;
+  event.target.disabled = true;
   if (checkWin()) {
     text.innerHTML = "PLAYER " + gamePiece + " WINS!";
+    disableGameSpace(true);
   } else if (checkDraw()) {
     text.innerHTML = "DRAW!";
   } else {
