@@ -100,22 +100,23 @@ function checkDraw() {
   return false;
 }
 
-function disableGameSpace(trueFalse) {
+function disableGameSpaces(trueFalse) {
   gameSpaces.forEach((space) => (space.disabled = trueFalse));
 }
 
 function clearGameBoard(event) {
-  if (text.innerHTML === "PLAYER " + xGamePiece + " WINS!") {
+  if (
+    text.innerHTML === "PLAYER " + xGamePiece + " WINS!" ||
+    text.innerHTML === "DRAW!"
+  ) {
     text.innerHTML = "Player X turn";
   }
   if (text.innerHTML === "PLAYER " + oGamePiece + " WINS!") {
     text.innerHTML = "Player O turn";
   }
-  if (text.innerHTML === "DRAW!") {
-    text.innerHTML = "Player X turn";
-  }
+
   gameSpaces.forEach((space) => (space.innerHTML = ""));
-  disableGameSpace(false);
+  disableGameSpaces(false);
 }
 
 function useGamePiece(event) {
@@ -125,7 +126,7 @@ function useGamePiece(event) {
   event.target.disabled = true;
   if (checkWin()) {
     text.innerHTML = "PLAYER " + gamePiece + " WINS!";
-    disableGameSpace(true);
+    disableGameSpaces(true);
   } else if (checkDraw()) {
     text.innerHTML = "DRAW!";
   } else {
