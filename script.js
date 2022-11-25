@@ -7,8 +7,6 @@
 
 //event.preventdefault
 
-text.innerHTML = "Player X turn";
-
 let gamePiece = "";
 let playerTurn = true;
 let text = document.getElementById("text");
@@ -22,8 +20,11 @@ gameSpaces.forEach(addEventListenerToGameSpaces);
 
 document.addEventListener("keydown", enterKeyDisable);
 
+text.innerHTML = "Player X turn";
+
 function enterKeyDisable(event) {
   if (event.keyCode == "13") {
+    console.log("disableEnter");
     event.preventDefault();
   }
 }
