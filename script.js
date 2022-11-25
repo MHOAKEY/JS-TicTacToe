@@ -7,6 +7,8 @@
 
 //event.preventdefault
 
+text.innerHTML = "Player X turn";
+
 let gamePiece = "";
 let playerTurn = true;
 let text = document.getElementById("text");
@@ -14,6 +16,9 @@ const xGamePiece = "X";
 const oGamePiece = "O";
 const gameSpaces = document.querySelectorAll(".gameSpace");
 const restart = document.getElementById("restart");
+
+restart.addEventListener("click", clearGameBoard);
+gameSpaces.forEach(addEventListenerToGameSpaces);
 
 document.addEventListener("keydown", enterKeyDisable);
 
@@ -23,14 +28,9 @@ function enterKeyDisable(event) {
   }
 }
 
-restart.addEventListener("click", clearGameBoard);
-gameSpaces.forEach(addEventListenerToGameSpaces);
-
 function addEventListenerToGameSpaces(gameSpace) {
   gameSpace.addEventListener("click", useGamePiece);
 }
-
-text.innerHTML = "Player X turn";
 
 function checkWin() {
   if (
