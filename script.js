@@ -5,6 +5,8 @@
 // - A User should not be able to select a box that is already selected
 // - When game is over (whether a win or tie) the users should be prompted to play again and the game should be reset
 
+//event.preventdefault
+
 let gamePiece = "";
 let playerTurn = true;
 let text = document.getElementById("text");
@@ -12,6 +14,14 @@ const xGamePiece = "X";
 const oGamePiece = "O";
 const gameSpaces = document.querySelectorAll(".gameSpace");
 const restart = document.getElementById("restart");
+
+document.addEventListener("keydown", enterKeyDisable);
+
+function enterKeyDisable(event) {
+  if (event.keyCode == "13") {
+    event.preventDefault();
+  }
+}
 
 restart.addEventListener("click", clearGameBoard);
 gameSpaces.forEach(addEventListenerToGameSpaces);
@@ -117,6 +127,13 @@ function clearGameBoard(event) {
 
   gameSpaces.forEach((space) => (space.innerHTML = ""));
   disableGameSpaces(false);
+}
+
+function insertPlayerName(userInput) {
+  let p1Name = document.getElementById("P1Name");
+  let inputName = document.getElementById("P1NameInput").value;
+
+  p1Name.innerHTML = inputName;
 }
 
 function useGamePiece(event) {

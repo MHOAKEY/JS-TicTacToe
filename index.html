@@ -29,8 +29,19 @@
     <footer>
       <br />
       <form>
-        <label for="P1Name">Player X:</label>
-        <input type="text" id="P1Name" name="P1Name" placeholder="Enter Name" />
+        <label id="P1Name">Player X:</label>
+        <input
+          type="text"
+          name="P1Name"
+          id="P1NameInput"
+          placeholder="Enter Name"
+        />
+        <input
+          type="button"
+          id="bt"
+          value="Submit"
+          onclick="insertPlayerName()"
+        />
       </form>
       <div id="xScore">0</div>
       <form>
