@@ -40,13 +40,24 @@
           type="button"
           id="bt"
           value="Submit"
-          onclick="insertPlayerName()"
+          onclick="insertPlayerXName()"
         />
       </form>
       <div id="xScore">0</div>
       <form>
-        <label for="P2Name">Player O:</label>
-        <input type="text" id="P2Name" name="P2Name" placeholder="Enter Name" />
+        <label id="P2Name">Player O:</label>
+        <input
+          type="text"
+          name="P2Name"
+          id="P2NameInput"
+          placeholder="Enter Name"
+        />
+        <input
+          type="button"
+          id="bt"
+          value="Submit"
+          onclick="insertPlayerOName()"
+        />
       </form>
       <div id="oScore">0</div>
       <script src="script.js"></script>

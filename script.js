@@ -129,11 +129,18 @@ function clearGameBoard(event) {
   disableGameSpaces(false);
 }
 
-function insertPlayerName(userInput) {
+function insertPlayerXName(userInput) {
   let p1Name = document.getElementById("P1Name");
   let inputName = document.getElementById("P1NameInput").value;
 
   p1Name.innerHTML = inputName;
+}
+
+function insertPlayerOName(userInput) {
+  let p2Name = document.getElementById("P2Name");
+  let input2Name = document.getElementById("P2NameInput").value;
+
+  p2Name.innerHTML = input2Name;
 }
 
 function useGamePiece(event) {
