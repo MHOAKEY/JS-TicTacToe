@@ -11,7 +11,9 @@ let text = document.getElementById("text");
 const xGamePiece = "X";
 const oGamePiece = "O";
 const gameSpaces = document.querySelectorAll(".gameSpace");
+const restart = document.getElementById("restart");
 
+restart.addEventListener("click", clearGameBoard);
 gameSpaces.forEach(addEventListenerToGameSpaces);
 
 function addEventListenerToGameSpaces(gameSpace) {
@@ -81,12 +83,52 @@ function checkWin() {
   return false;
 }
 
+function checkDraw() {
+  if (
+    gameSpaces[0].innerHTML !== "" &&
+    gameSpaces[1].innerHTML !== "" &&
+    gameSpaces[2].innerHTML !== "" &&
+    gameSpaces[3].innerHTML !== "" &&
+    gameSpaces[4].innerHTML !== "" &&
+    gameSpaces[5].innerHTML !== "" &&
+    gameSpaces[6].innerHTML !== "" &&
+    gameSpaces[7].innerHTML !== "" &&
+    gameSpaces[8].innerHTML !== ""
+  ) {
+    return true;
+  }
+  return false;
+}
+
+function disableGameSpaces(trueFalse) {
+  gameSpaces.forEach((space) => (space.disabled = trueFalse));
+}
+
+function clearGameBoard(event) {
+  if (
+    text.innerHTML === "PLAYER " + xGamePiece + " WINS!" ||
+    text.innerHTML === "DRAW!"
+  ) {
+    text.innerHTML = "Player X turn";
+  }
+  if (text.innerHTML === "PLAYER " + oGamePiece + " WINS!") {
+    text.innerHTML = "Player O turn";
+  }
+
+  gameSpaces.forEach((space) => (space.innerHTML = ""));
+  disableGameSpaces(false);
+}
+
 function useGamePiece(event) {
   playerTurn ? (gamePiece = xGamePiece) : (gamePiece = oGamePiece);
 
   event.target.innerHTML = gamePiece;
+  event.target.disabled = true;
   if (checkWin()) {
     text.innerHTML = "PLAYER " + gamePiece + " WINS!";
+    disableGameSpaces(true);
+  } else if (checkDraw()) {
+    text.innerHTML = "DRAW!";
   } else {
     if (gamePiece === xGamePiece) {
       playerTurn = false;
