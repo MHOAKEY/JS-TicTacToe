@@ -136,6 +136,8 @@ function insertPlayerXName(userInput) {
   let inputName = document.getElementById("P1NameInput").value;
 
   p1Name.innerHTML = inputName;
+  document.getElementById("P1NameInput").style.visibility = "hidden";
+  document.getElementById("bt").style.visibility = "hidden";
 }
 
 function insertPlayerOName(userInput) {
@@ -143,6 +145,8 @@ function insertPlayerOName(userInput) {
   let input2Name = document.getElementById("P2NameInput").value;
 
   p2Name.innerHTML = input2Name;
+  document.getElementById("P2NameInput").style.visibility = "hidden";
+  document.getElementById("bt2").style.visibility = "hidden";
 }
 
 function updateScore(gamePiece) {
