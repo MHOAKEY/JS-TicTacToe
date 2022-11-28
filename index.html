@@ -29,7 +29,7 @@
     <div>
       <br />
       <form>
-        <label id="P1Name">Player X:</label>
+        <label for="P1NameInput">Player X:</label>
         <input
           type="text"
           name="P1Name"
@@ -43,9 +43,12 @@
           onclick="insertPlayerXName()"
         />
       </form>
-      <div id="xScore">0</div>
+      <div>
+        <span id="xScore">0</span>
+        <span id="P1Name"></span>
+      </div>
       <form>
-        <label id="P2Name">Player O:</label>
+        <label for="P2NameInput">Player O:</label>
         <input
           type="text"
           name="P2Name"
@@ -59,7 +62,10 @@
           onclick="insertPlayerOName()"
         />
       </form>
-      <div id="oScore">0</div>
+      <div>
+        <span id="oScore">0</span>
+        <span id="P2Name"></span>
+      </div>
     </div>
     <footer>
       <script src="script.js"></script>
