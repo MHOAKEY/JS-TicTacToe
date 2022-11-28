@@ -145,7 +145,7 @@ function insertPlayerOName(userInput) {
   p2Name.innerHTML = input2Name;
 }
 
-function keepScore(gamePiece) {
+function updateScore(gamePiece) {
   if (gamePiece === xGamePiece) {
     xScore.innerHTML = Number(xScore.innerHTML) + 1;
   } else if (gamePiece === oGamePiece) {
@@ -160,7 +160,7 @@ function useGamePiece(event) {
   event.target.disabled = true;
   if (checkWin()) {
     text.innerHTML = "PLAYER " + gamePiece + " WINS!";
-    keepScore(gamePiece);
+    updateScore(gamePiece);
     disableGameSpaces(true);
   } else if (checkDraw()) {
     text.innerHTML = "DRAW!";
