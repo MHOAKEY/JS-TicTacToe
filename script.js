@@ -10,6 +10,8 @@
 let gamePiece = "";
 let playerTurn = true;
 let text = document.getElementById("text");
+let xScore = document.getElementById("xScore");
+let oScore = document.getElementById("oScore");
 const xGamePiece = "X";
 const oGamePiece = "O";
 const gameSpaces = document.querySelectorAll(".gameSpace");
@@ -144,6 +146,14 @@ function insertPlayerOName(userInput) {
   p2Name.innerHTML = input2Name;
 }
 
+function keepScore(gamePiece) {
+  if (gamePiece === xGamePiece) {
+    xScore.innerHTML = Number(xScore.innerHTML) + 1;
+  } else if (gamePiece === oGamePiece) {
+    oScore.innerHTML = Number(oScore.innerHTML) + 1;
+  }
+}
+
 function useGamePiece(event) {
   playerTurn ? (gamePiece = xGamePiece) : (gamePiece = oGamePiece);
 
@@ -151,6 +161,7 @@ function useGamePiece(event) {
   event.target.disabled = true;
   if (checkWin()) {
     text.innerHTML = "PLAYER " + gamePiece + " WINS!";
+    keepScore(gamePiece);
     disableGameSpaces(true);
   } else if (checkDraw()) {
     text.innerHTML = "DRAW!";
