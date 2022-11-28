@@ -26,7 +26,6 @@ text.innerHTML = "Player X turn";
 
 function enterKeyDisable(event) {
   if (event.keyCode == "13") {
-    console.log("disableEnter");
     event.preventDefault();
   }
 }
