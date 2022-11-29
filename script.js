@@ -1,13 +1,8 @@
-// Time to try and build a web version of your Tic Tac Toe game
-// You will want to have 9 boxes that a user can click on
-// - Depending on the user turn the clicked box should change to X or O
-// - A User should only be able to select one box per turn
-// - A User should not be able to select a box that is already selected
-// - When game is over (whether a win or tie) the users should be prompted to play again and the game should be reset
-
 let gamePiece = "";
 let playerTurn = true;
 let text = document.getElementById("text");
+let xScore = document.getElementById("xScore");
+let oScore = document.getElementById("oScore");
 const xGamePiece = "X";
 const oGamePiece = "O";
 const gameSpaces = document.querySelectorAll(".gameSpace");
@@ -16,11 +11,19 @@ const restart = document.getElementById("restart");
 restart.addEventListener("click", clearGameBoard);
 gameSpaces.forEach(addEventListenerToGameSpaces);
 
+document.addEventListener("keydown", enterKeyDisable);
+
+text.innerHTML = "Player X turn";
+
+function enterKeyDisable(event) {
+  if (event.keyCode == "13") {
+    event.preventDefault();
+  }
+}
+
 function addEventListenerToGameSpaces(gameSpace) {
   gameSpace.addEventListener("click", useGamePiece);
 }
-
-text.innerHTML = "Player X turn";
 
 function checkWin() {
   if (
@@ -119,6 +122,32 @@ function clearGameBoard(event) {
   disableGameSpaces(false);
 }
 
+function insertPlayerXName(userInput) {
+  let p1Name = document.getElementById("P1Name");
+  let inputName = document.getElementById("P1NameInput");
+
+  p1Name.innerHTML = inputName.value;
+  inputName.style.visibility = "hidden";
+  document.getElementById("bt").style.visibility = "hidden";
+}
+
+function insertPlayerOName(userInput) {
+  let p2Name = document.getElementById("P2Name");
+  let input2Name = document.getElementById("P2NameInput");
+
+  p2Name.innerHTML = input2Name.value;
+  input2Name.style.visibility = "hidden";
+  document.getElementById("bt2").style.visibility = "hidden";
+}
+
+function updateScore(gamePiece) {
+  if (gamePiece === xGamePiece) {
+    xScore.innerHTML = Number(xScore.innerHTML) + 1;
+  } else if (gamePiece === oGamePiece) {
+    oScore.innerHTML = Number(oScore.innerHTML) + 1;
+  }
+}
+
 function useGamePiece(event) {
   playerTurn ? (gamePiece = xGamePiece) : (gamePiece = oGamePiece);
 
@@ -126,6 +155,7 @@ function useGamePiece(event) {
   event.target.disabled = true;
   if (checkWin()) {
     text.innerHTML = "PLAYER " + gamePiece + " WINS!";
+    updateScore(gamePiece);
     disableGameSpaces(true);
   } else if (checkDraw()) {
     text.innerHTML = "DRAW!";
