@@ -9,21 +9,70 @@
   </head>
   <body>
     <div>
+<<<<<<< HEAD
       <button class="gameSpace">&#32</button>
       <button class="gameSpace"></button>
       <button class="gameSpace"></button>
+=======
+      <button class="gameSpace" id="1"></button>
+      <button class="gameSpace" id="2"></button>
+      <button class="gameSpace" id="3"></button>
+>>>>>>> main
     </div>
     <div>
-      <button class="gameSpace"></button>
-      <button class="gameSpace"></button>
-      <button class="gameSpace"></button>
+      <button class="gameSpace" id="4"></button>
+      <button class="gameSpace" id="5"></button>
+      <button class="gameSpace" id="6"></button>
     </div>
     <div>
-      <button class="gameSpace"></button>
-      <button class="gameSpace"></button>
-      <button class="gameSpace"></button>
+      <button class="gameSpace" id="7"></button>
+      <button class="gameSpace" id="8"></button>
+      <button class="gameSpace" id="9"></button>
     </div>
+    <br />
     <div id="text"></div>
+    <div><br /><button id="restart">RESTART</button></div>
+    <div>
+      <br />
+      <form>
+        <label for="P1NameInput">Player X:</label>
+        <input
+          type="text"
+          name="P1Name"
+          id="P1NameInput"
+          placeholder="Enter Name"
+        />
+        <input
+          type="button"
+          id="bt"
+          value="Submit"
+          onclick="insertPlayerXName()"
+        />
+      </form>
+      <div>
+        <span id="xScore">0</span>
+        <span id="P1Name"></span>
+      </div>
+      <form>
+        <label for="P2NameInput">Player O:</label>
+        <input
+          type="text"
+          name="P2Name"
+          id="P2NameInput"
+          placeholder="Enter Name"
+        />
+        <input
+          type="button"
+          id="bt2"
+          value="Submit"
+          onclick="insertPlayerOName()"
+        />
+      </form>
+      <div>
+        <span id="oScore">0</span>
+        <span id="P2Name"></span>
+      </div>
+    </div>
     <footer>
       <script src="script.js"></script>
     </footer>
