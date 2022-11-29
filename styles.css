@@ -1,4 +1,56 @@
 .gameSpace {
-  height: 100px;
+  color: rgb(103, 0, 199);
+  font-size: 125px;
+  height: 150px;
+  width: 150px;
+}
+
+.flex-container {
+  display: flex;
+}
+
+#text {
+  color: rgb(103, 0, 199);
+  font-size: xx-large;
+  font-weight: bolder;
+}
+
+#restart {
+  color: rgb(183, 175, 175);
+  font-size: large;
+  font-weight: lighter;
+  height: 30px;
   width: 100px;
+}
+
+#restart:hover {
+  color: black;
+  font-weight: bolder;
+}
+
+#playerX {
+  color: rgb(54, 54, 54);
+  font-weight: bold;
+}
+
+#playerO {
+  color: rgb(54, 54, 54);
+  font-weight: bold;
+}
+
+#xScore {
+  font-size: 25px;
+}
+#oScore {
+  font-size: 25px;
+}
+
+#P1Name {
+  color: rgb(103, 0, 199);
+  font-size: 25px;
+}
+
+#P2Name {
+  color: rgb(103, 0, 199);
+  font-size: 25px;
 }
