@@ -1,12 +1,3 @@
-// Time to try and build a web version of your Tic Tac Toe game
-// You will want to have 9 boxes that a user can click on
-// - Depending on the user turn the clicked box should change to X or O
-// - A User should only be able to select one box per turn
-// - A User should not be able to select a box that is already selected
-// - When game is over (whether a win or tie) the users should be prompted to play again and the game should be reset
-
-//event.preventdefault
-
 let gamePiece = "";
 let playerTurn = true;
 let text = document.getElementById("text");
@@ -133,19 +124,19 @@ function clearGameBoard(event) {
 
 function insertPlayerXName(userInput) {
   let p1Name = document.getElementById("P1Name");
-  let inputName = document.getElementById("P1NameInput").value;
+  let inputName = document.getElementById("P1NameInput");
 
-  p1Name.innerHTML = inputName;
-  document.getElementById("P1NameInput").style.visibility = "hidden";
+  p1Name.innerHTML = inputName.value;
+  inputName.style.visibility = "hidden";
   document.getElementById("bt").style.visibility = "hidden";
 }
 
 function insertPlayerOName(userInput) {
   let p2Name = document.getElementById("P2Name");
-  let input2Name = document.getElementById("P2NameInput").value;
+  let input2Name = document.getElementById("P2NameInput");
 
-  p2Name.innerHTML = input2Name;
-  document.getElementById("P2NameInput").style.visibility = "hidden";
+  p2Name.innerHTML = input2Name.value;
+  input2Name.style.visibility = "hidden";
   document.getElementById("bt2").style.visibility = "hidden";
 }
 
