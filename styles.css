@@ -54,3 +54,13 @@
   color: rgb(103, 0, 199);
   font-size: 25px;
 }
+
+.center {
+  display: flex;
+  justify-content: center;
+}
+
+.space {
+  margin-left: 10px;
+  margin-right: 10px;
+}
