@@ -8,28 +8,33 @@
     <title>TicTacToe</title>
   </head>
   <body>
-    <div>
+    <div class="center flex-container">
       <button class="gameSpace" id="1"></button>
       <button class="gameSpace" id="2"></button>
       <button class="gameSpace" id="3"></button>
     </div>
-    <div>
+    <div class="center flex-container">
       <button class="gameSpace" id="4"></button>
       <button class="gameSpace" id="5"></button>
       <button class="gameSpace" id="6"></button>
     </div>
-    <div>
+    <div class="center flex-container">
       <button class="gameSpace" id="7"></button>
       <button class="gameSpace" id="8"></button>
       <button class="gameSpace" id="9"></button>
     </div>
-    <br />
-    <div id="text"></div>
-    <div><br /><button id="restart">RESTART</button></div>
-    <div>
-      <br />
-      <form>
-        <label for="P1NameInput">Player X:</label>
+    <br/>
+    <div class="center" id="text"></div>
+    <br/>
+    <div class="center">
+      <button id="restart">RESTART</button>
+    </div>
+    <br/>
+    <div class="center">
+      <label id="playerX" for="P1NameInput">Player X:</label>
+    </div>
+    <div class="center">
+        <form>
         <input
           type="text"
           name="P1Name"
@@ -43,12 +48,17 @@
           onclick="insertPlayerXName()"
         />
       </form>
-      <div>
-        <span id="xScore">0</span>
-        <span id="P1Name"></span>
+    </div>
+      <div class="center">
+        <span class="space" id="P1Name"></span>
+        <span class="space" id="xScore">0</span>
       </div>
+      <br/>
+      <div class="center">
+        <label id="playerO" for="P2NameInput">Player O:</label>
+      </div>
+      <div class="center">
       <form>
-        <label for="P2NameInput">Player O:</label>
         <input
           type="text"
           name="P2Name"
@@ -62,9 +72,10 @@
           onclick="insertPlayerOName()"
         />
       </form>
-      <div>
-        <span id="oScore">0</span>
-        <span id="P2Name"></span>
+    </div>
+      <div class="center">
+        <span class="space" id="P2Name"></span>
+        <span class="space"id="oScore">0</span>
       </div>
     </div>
     <footer>
